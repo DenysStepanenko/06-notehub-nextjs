@@ -18,16 +18,14 @@ const NoteDetailsClient = () => {
 
   if (error || !note) return <p>Some error..</p>;
 
-  const formattedDate = note.updatedAt
-    ? `Updated at: ${note.updatedAt}`
-    : `Created at: ${note.createdAt}`;
+  const formattedDate = `Created at: ${note.createdAt}`;
 
   return (
     <div className={css.container}>
       <div className={css.item}>
         <div className={css.header}>
           <h2>{note.title}</h2>
-          <span className={css.tag}>{note.categoryId}</span>
+          <span className={css.tag}>{note.tag}</span>
         </div>
         <div className={css.content}>{note.content}</div>
         <div className={css.date}>{formattedDate}</div>

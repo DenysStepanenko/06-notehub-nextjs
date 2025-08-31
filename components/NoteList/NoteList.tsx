@@ -38,7 +38,7 @@ const NoteList = ({ notes }: NoteListProps) => {
           <Link href={`/notes/${note.id}`} className={css.noteLink}>
             <h3 className={css.noteTitle}>{note.title}</h3>
             <p className={css.noteContent}>{note.content}</p>
-            <span className={css.noteCategory}>{note.categoryId}</span>
+            <span className={css.noteCategory}>{note.tag}</span>
           </Link>
           <button
             onClick={() => handleDelete(note.id)}

@@ -18,10 +18,9 @@ const validationSchema = Yup.object({
     .max(50, 'Title must be less than 50 characters')
     .required('Title is required'),
   content: Yup.string()
-    .min(10, 'Content must be at least 10 characters')
-    .required('Content is required'),
-  categoryId: Yup.string()
-    .required('Category is required'),
+    .max(500, 'Content must be less than 500 characters'),
+  tag: Yup.string()
+    .required('Tag is required'),
 });
 
 const NoteForm = ({ onClose }: NoteFormProps) => {
@@ -42,7 +41,7 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
   const initialValues: NewNoteData = {
     title: '',
     content: '',
-    categoryId: '',
+    tag: '',
   };
 
   return (
@@ -79,12 +78,18 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
 
           <div className={css.field}>
             <Field
-              type="text"
-              name="categoryId"
-              placeholder="Category"
+              as="select"
+              name="tag"
               className={css.input}
-            />
-            <ErrorMessage name="categoryId" component="div" className={css.error} />
+            >
+              <option value="">Select tag</option>
+              <option value="Todo">Todo</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Meeting">Meeting</option>
+              <option value="Shopping">Shopping</option>
+            </Field>
+            <ErrorMessage name="tag" component="div" className={css.error} />
           </div>
 
           <div className={css.buttons}>

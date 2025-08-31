@@ -2,8 +2,7 @@ export interface Note {
   id: string;
   title: string;
   content: string;
-  categoryId: string;
-  userId: string;
+  tag: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -11,11 +10,6 @@ export interface Note {
 export interface NewNoteData {
   title: string;
   content: string;
-  categoryId: string;
-}
-
-export interface NoteListResponse {
-  notes: Note[];
-  total: number;
+  tag: string;
 }
 
